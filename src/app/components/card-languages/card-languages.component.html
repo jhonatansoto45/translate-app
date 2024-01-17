@@ -15,8 +15,16 @@
       </button>
     </li>
   </ul>
-  <button class="btn__outline" *ngIf="secondCard">
-    <img src="../../../assets/images/Horizontal_top_left_main.svg" alt="" />
+  <button
+    class="btn__outline"
+    *ngIf="secondCard"
+    (click)="exchangeLanguage()"
+    title="Change Language"
+  >
+    <img
+      src="../../../assets/images/Horizontal_top_left_main.svg"
+      alt="Change Language"
+    />
   </button>
 </section>
 <div class="divisor"></div>

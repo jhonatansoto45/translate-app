@@ -13,7 +13,6 @@ import { AppState } from '../../app.reducer';
 import { TranslateService } from '../../service/translate.service';
 import { State } from '../../redux/translate.reducer';
 import { changeLanguage } from '../../redux/translate.actions';
-import { LoaderComponent } from '../loader/loader.component';
 
 @Component({
   selector: 'app-card-buttons',
@@ -27,7 +26,7 @@ export class CardButtonsComponent implements OnInit, OnDestroy {
 
   currentState!: State;
 
-  loaderCom!: ComponentRef<LoaderComponent>;
+  openToast: boolean = false;
 
   constructor(
     private store: Store<AppState>,
@@ -45,8 +44,21 @@ export class CardButtonsComponent implements OnInit, OnDestroy {
     this.subStore.unsubscribe();
   }
 
+  async copyText(): Promise<void> {
+    const TEXT = this.viewBtnTranslate
+      ? this.currentState.textTranslate.translate
+      : this.currentState.textTranslate.original;
+    if (!TEXT) return;
+
+    this.openToast = true;
+
+    await navigator.clipboard.writeText(TEXT);
+
+    setTimeout(() => (this.openToast = false), 2500);
+  }
+
   translateText(): void {
-    this.openLoader(true);
+    this.translateService.loaderComponent(this.vcf, true);
     const CODE_LANGUAGE = `${this.currentState.language.code}|${this.currentState.translate.code}`;
     const TEXT_ORIGINAL = this.currentState.textTranslate.original;
 
@@ -61,14 +73,7 @@ export class CardButtonsComponent implements OnInit, OnDestroy {
             },
           })
         );
-        this.openLoader(false);
+        this.translateService.loaderComponent(this.vcf, false);
       });
-  }
-
-  openLoader(open: boolean): void {
-    if (this.vcf) this.vcf.clear();
-
-    if (open) this.loaderCom = this.vcf.createComponent(LoaderComponent);
-    else this.loaderCom.destroy();
   }
 }

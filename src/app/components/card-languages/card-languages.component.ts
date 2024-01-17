@@ -1,4 +1,10 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnDestroy,
+  OnInit,
+  ViewContainerRef,
+} from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 
@@ -22,7 +28,8 @@ export class CardLanguagesComponent implements OnInit, OnDestroy {
 
   constructor(
     private translateService: TranslateService,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private vcf: ViewContainerRef
   ) {}
 
   ngOnInit(): void {
@@ -61,5 +68,16 @@ export class CardLanguagesComponent implements OnInit, OnDestroy {
     };
 
     this.store.dispatch(chooseLanguage(copyLanguageActive));
+  }
+
+  exchangeLanguage(): void {
+    this.translateService.loaderComponent(this.vcf, true);
+    this.store.dispatch(
+      chooseLanguage({
+        language: { ...this.languageActive.translate },
+        translate: { ...this.languageActive.language },
+      })
+    );
+    this.translateService.loaderComponent(this.vcf, false);
   }
 }

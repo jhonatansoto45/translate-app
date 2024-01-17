@@ -3,7 +3,7 @@
     <button class="btn__outline">
       <img src="../../../assets/images/sound_max_fill.svg" />
     </button>
-    <button class="btn__outline">
+    <button class="btn__outline" (click)="copyText()" title="Copy text">
       <img src="../../../assets/images/Copy.svg" />
     </button>
   </div>
@@ -14,3 +14,9 @@
     </button>
   </div>
 </div>
+
+<ng-container #toast *ngIf="openToast">
+  <div class="toast animate__animated animate__fadeInUp">
+    <p>Successfully copied to the clipboard</p>
+  </div>
+</ng-container>
