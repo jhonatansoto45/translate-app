@@ -11,7 +11,10 @@ export interface State {
 export const initialState: State = {
   language: { language: 'English', code: 'en' },
   translate: { language: 'French', code: 'fr' },
-  textTranslate: { original: '', translate: '' },
+  textTranslate: {
+    original: 'Hello, how are you?',
+    translate: 'Bonjour, comment allez-vous?',
+  },
 };
 
 const _translateReducer = createReducer(
