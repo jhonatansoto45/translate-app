@@ -1,6 +1,5 @@
 .card {
   width: 100%;
-  min-width: 380px;
   height: 415px;
   border-radius: 36px;
   border: 1px solid var(--semi-gray);
@@ -17,13 +16,10 @@ app-card-languages,
 app-card-input {
   display: block;
   width: 100%;
-
 }
-
 
 @media screen and (max-width: 640px) {
-.card {
-  height: 430px;
+  .card {
+    height: 430px;
+  }
 }
-}
-
