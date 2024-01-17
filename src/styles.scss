@@ -1,1 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "DM-Sans-Bold";
+  src: url(./assets/fonts/DMSans-Bold.ttf);
+}
+
+@font-face {
+  font-family: "DM-Sans-Medium";
+  font-size: 0.75rem;
+  src: url(./assets/fonts/DMSans-Medium.ttf);
+}
+
+:root {
+  --black: #040711;
+  --semi-gray: #394150;
+  --gray: #4d5562;
+  --gray-light: #585E6B;
+  --semi-white: #cdd5e0;
+  --white: #f9fafb;
+  --blue: #3662e3;
+  --semi-blue: #7ca9f3;
+  --semi-black: #212936cc;
+  --semi-black-second: #121826cc;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "DM-Sans-Medium", sans-serif;
+}
+
+html,
+body {
+  background-color: var(--black);
+}
+
+.btn__outline {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--semi-gray);
+  outline: none;
+  background-color: transparent;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  & img {
+    width: 70%;
+    height: 70%;
+  }
+
+  &:hover {
+    background-color: var(--semi-white);
+  }
+}

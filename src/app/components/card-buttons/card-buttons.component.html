@@ -1,0 +1,16 @@
+<div class="card__buttons">
+  <div class="buttons__left">
+    <button class="btn__outline">
+      <img src="../../../assets/images/sound_max_fill.svg" />
+    </button>
+    <button class="btn__outline">
+      <img src="../../../assets/images/Copy.svg" />
+    </button>
+  </div>
+  <div class="buttons__right" *ngIf="!viewBtnTranslate">
+    <button class="btn__translate" (click)="translateText()">
+      <img src="../../../assets/images/Sort_alfa.svg" />
+      <span>Translate</span>
+    </button>
+  </div>
+</div>

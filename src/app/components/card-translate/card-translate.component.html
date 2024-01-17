@@ -1,0 +1,12 @@
+<section
+  class="card"
+  [ngStyle]="{
+    'background-color': secondCard
+      ? 'var(--semi-black-second)'
+      : 'var(--semi-black)'
+  }"
+>
+  <app-card-languages [secondCard]="secondCard"></app-card-languages>
+  <app-card-input [secondCard]="secondCard"></app-card-input>
+  <app-card-buttons [viewBtnTranslate]="secondCard"></app-card-buttons>
+</section>

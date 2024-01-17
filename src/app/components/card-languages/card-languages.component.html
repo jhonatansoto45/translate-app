@@ -1,0 +1,22 @@
+<section class="list">
+  <ul class="list__ul">
+    <li class="list__item" *ngIf="!secondCard">Detect Language</li>
+    <li
+      *ngFor="let language of listLanguages"
+      class="list__item"
+      [ngClass]="{
+        'list__item--active': valideActiveItem(language)
+      }"
+      (click)="changeLanguage(language, secondCard)"
+    >
+      {{ language.language }}
+      <button *ngIf="language?.showButton" class="list__btn">
+        <img src="../../../assets/images/Expand_down.svg" alt="" />
+      </button>
+    </li>
+  </ul>
+  <button class="btn__outline" *ngIf="secondCard">
+    <img src="../../../assets/images/Horizontal_top_left_main.svg" alt="" />
+  </button>
+</section>
+<div class="divisor"></div>

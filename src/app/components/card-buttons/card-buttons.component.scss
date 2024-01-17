@@ -1,0 +1,34 @@
+.card__buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+
+  .buttons__left,
+  .buttons__right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+
+
+.btn__translate {
+  font-family: "DM-Sans-Bold";
+  font-size: 1rem;
+  width: 145px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  background-color: var(--blue);
+  color: var(--white);
+  border: 1px solid var(--semi-blue);
+  outline: none;
+  cursor: pointer;
+}

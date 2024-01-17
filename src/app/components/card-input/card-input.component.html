@@ -1,0 +1,27 @@
+<section class="input">
+  <article [ngSwitch]="secondCard">
+    <div *ngSwitchCase="true">
+      <textarea
+        class="input__text"
+        [(ngModel)]="textTranslate"
+        [maxlength]="MAX_LENGTH"
+        [disabled]="true"
+      ></textarea>
+      <span class="input__length">
+        {{ textTranslate.length }}/{{ MAX_LENGTH }}
+      </span>
+    </div>
+    <div *ngSwitchCase="false">
+      <textarea
+        class="input__text"
+        [(ngModel)]="textOriginal"
+        [maxlength]="MAX_LENGTH"
+        (ngModelChange)="onChangeValue($event)"
+      ></textarea>
+      <span class="input__length">
+        {{ textOriginal.length }}/{{ MAX_LENGTH }}
+      </span>
+    </div>
+  </article>
+
+</section>
