@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 import { TranslateService } from '../../service/translate.service';
 import { AppState } from '../../app.reducer';
 import { LanguageCode } from '../../interface/translate.interface';
-import { chooseLanguage } from '../../redux/translate.actions';
+import { changeLanguage, chooseLanguage } from '../../redux/translate.actions';
 import { State } from '../../redux/translate.reducer';
 
 @Component({
@@ -76,6 +76,14 @@ export class CardLanguagesComponent implements OnInit, OnDestroy {
       chooseLanguage({
         language: { ...this.languageActive.translate },
         translate: { ...this.languageActive.language },
+      })
+    );
+    this.store.dispatch(
+      changeLanguage({
+        textTranslate: {
+          original: this.languageActive.textTranslate.translate,
+          translate: this.languageActive.textTranslate.original,
+        },
       })
     );
     this.translateService.loaderComponent(this.vcf, false);

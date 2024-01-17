@@ -1,5 +1,6 @@
 .card {
   width: 100%;
+  min-width: 380px;
   height: 415px;
   border-radius: 36px;
   border: 1px solid var(--semi-gray);
@@ -19,4 +20,10 @@ app-card-input {
 
 }
 
+
+@media screen and (max-width: 640px) {
+.card {
+  height: 430px;
+}
+}
 
