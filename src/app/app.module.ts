@@ -16,6 +16,7 @@ import { CardTranslateComponent } from './components/card-translate/card-transla
 import { CardButtonsComponent } from './components/card-buttons/card-buttons.component';
 import { CardLanguagesComponent } from './components/card-languages/card-languages.component';
 import { TranslateService } from './service/translate.service';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { TranslateService } from './service/translate.service';
     CardButtonsComponent,
     CardLanguagesComponent,
     CardInputComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
